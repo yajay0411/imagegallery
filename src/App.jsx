@@ -7,7 +7,7 @@ import ImageSearch from "./components/ImageSearch";
 function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [term, setTerm] = useState("cars");
+  const [term, setTerm] = useState("");
 
   useEffect(() => {
     axios.get(`https://pixabay.com/api/?key=${REACT_APP_PIXABAY_API_KEY}&q=${term}&images_type=photo&pretty=true`)
