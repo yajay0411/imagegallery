@@ -6,7 +6,7 @@ const ImageCard = ({ image }) => {
 
     return (
         <>
-            <div className="w-[300px] overflow-hidden shadow-xl">
+            <div className="w-[300px] overflow-hidden shadow-xl m-auto">
                 <img src={webformatURL}
                     alt="title"
                     className="w-full h-[250px] object-contain " />
