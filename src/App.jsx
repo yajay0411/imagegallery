@@ -35,7 +35,7 @@ function App() {
         (
           <div className="w-full flex flex-col justify-center items-center ">
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 border-b-2 border-purple-600 m-2 p-2">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 border-b-2 border-purple-600 m-2 p-2">
               {images.map((image) => (
                 <ImageCard key={image.id} image={image} />
               ))}

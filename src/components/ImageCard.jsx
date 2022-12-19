@@ -7,9 +7,11 @@ const ImageCard = ({ image }) => {
     return (
         <>
             <div className="w-[300px] overflow-hidden shadow-xl m-auto">
-                <img src={webformatURL}
-                    alt="title"
-                    className="w-full h-[250px] object-contain " />
+                <div className='shadow-inner'>
+                    <img src={webformatURL}
+                        alt="title"
+                        className="w-full h-[250px] object-contain shadow-inner shadow-black-100" />
+                </div>
                 <div className="p-2">
                     <div className="font-bold text-purple-500 text-[20px]">photo by {user}</div>
                     <ul className="py-1">
