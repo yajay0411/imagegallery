@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div className="w-full flex flex-col justify-center items-center">
-      <div className="w-full flex justify-between p-5 border-b-2 border-purple-600">
+      <div className="w-full flex flex-col sm:flex-row justify-between  items-center p-5 border-b-2 border-purple-600">
         <ImageSearch searchText={(text) => setTerm(text)} />
       </div>
 
