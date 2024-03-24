@@ -2,7 +2,15 @@ import React, { useState } from "react";
 import download from "../assets/download.png";
 
 const ImageCard = ({ image }) => {
-  const { likes, downloads, views, webformatURL, user, userImageURL } = image;
+  const {
+    likes,
+    downloads,
+    views,
+    webformatURL,
+    user,
+    userImageURL,
+    largeImageURL,
+  } = image;
 
   const tags = image.tags.split(",");
   const [imageHover, setImageHover] = useState(false);
@@ -78,7 +86,7 @@ const ImageCard = ({ image }) => {
                   key={index}
                   className="inline-block bg-purple-200 rounded-sm px-3 py-1 text-[15px] font-semibold text-gray-700 mb-3 mx-2 shadow-md"
                 >
-                  #{tag}
+                  <span>{`#${tag.trim()}`}</span>
                 </span>
               ))}
             </div>
@@ -88,7 +96,7 @@ const ImageCard = ({ image }) => {
           <div
             className="flex justify-end items-end absolute bottom-0 right-0 bg-white rounded-tl-full cursor-pointer"
             onClick={() => {
-              downloadImage(webformatURL);
+              downloadImage(largeImageURL);
             }}
           >
             <img
