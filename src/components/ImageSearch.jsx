@@ -25,15 +25,16 @@ const ImageSearch = ({ searchText, searchPage, setImages }) => {
   };
 
   const resetSearch = (fromHome = false) => {
+    console.log(`text `, text);
     const searchInput = document.getElementById("search-input");
     searchInput.value = "";
     setText("");
 
-    if (fromHome) {
+    if (text !== "") {
       setImages([]);
-      searchPage(1);
-      searchText("");
     }
+    searchPage(1);
+    searchText("");
   };
 
   return (
