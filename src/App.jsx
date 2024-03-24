@@ -16,7 +16,7 @@ function App() {
     setIsLoading(true);
     try {
       let api = await fetch(
-        `https://pixabay.com/api/?key=${REACT_APP_PIXABAY_API_KEY}&q=${term}&per_page=15&page=${page}`
+        `https://pixabay.com/api/?key=${REACT_APP_PIXABAY_API_KEY}&q=${term}&per_page=15&page=${page}&safesearch=true`
       );
       let imagesArry = await api.json();
       if (!imagesArry.hits) {
