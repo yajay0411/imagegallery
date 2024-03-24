@@ -3,8 +3,7 @@ import { REACT_APP_PIXABAY_API_KEY } from "../APIkey";
 import ImageCard from "./components/ImageCard";
 import ImageSearch from "./components/ImageSearch";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import ClipLoader from "react-spinners/ClipLoader";
-import Loader from "./components/loader";
+import Loader from "./components/Loader.jsx";
 
 function App() {
   const [images, setImages] = useState([]);
