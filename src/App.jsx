@@ -37,7 +37,7 @@ function App() {
   const handleScroll = async () => {
     try {
       if (
-        window.innerHeight + window.document.documentElement.scrollTop ===
+        window.innerHeight + window.document.documentElement.scrollTop + 1 >=
         window.document.documentElement.scrollHeight
       ) {
         setPage((prevPage) => prevPage + 1);
