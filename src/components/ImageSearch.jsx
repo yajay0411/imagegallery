@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import search from "../assets/search.png";
 
-const ImageSearch = ({ searchText }) => {
+const ImageSearch = ({ searchText, searchPage, setImages }) => {
   const [text, setText] = useState("");
 
   const onSubmit = (e) => {
     e.preventDefault();
     searchText(text);
+    searchPage(1);
+    setImages([]);
   };
 
   return (
