@@ -53,7 +53,7 @@ const ImageCard = ({ image }) => {
         <img
           src={webformatURL}
           alt="title"
-          className="max-w w-[100%] h-[100%] inline-block items-center"
+          className="w-[100%] h-[100%] inline-block object-contain bg-purple-200 rounded-lg"
         />
         {imageHover && (
           <div className="absolute bottom-0 bg-white rounded-tr-full bg-opacity-60 pr-5">

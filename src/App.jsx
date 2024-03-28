@@ -4,12 +4,14 @@ import ImageCard from "./components/ImageCard";
 import ImageSearch from "./components/ImageSearch";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import Loader from "./components/Loader.jsx";
+import ScrollTop from "./components/ScrollTop.jsx";
 
 function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [term, setTerm] = useState("");
   const [page, setPage] = useState(1);
+  const [show, setShow] = useState(false);
 
   const fetchImages = async () => {
     setIsLoading(true);
@@ -34,14 +36,34 @@ function App() {
     fetchImages();
   }, [page, term]);
 
-  const handleScroll = async () => {
+  const handleScroll = () => {
     try {
+      if (window.innerHeight < window.document.documentElement.scrollTop) {
+        setShow(true);
+      }
+
+      if (window.innerHeight > window.document.documentElement.scrollTop) {
+        setShow(false);
+      }
+
       if (
         window.innerHeight + window.document.documentElement.scrollTop + 1 >=
         window.document.documentElement.scrollHeight
       ) {
         setPage((prevPage) => prevPage + 1);
       }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleTopScroll = () => {
+    try {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      setShow(false);
     } catch (error) {
       console.log(error);
     }
@@ -84,9 +106,15 @@ function App() {
       {images.length > 0 && (
         <div className="w-full p-5">
           <ResponsiveMasonry
-            columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
+            columnsCountBreakPoints={{
+              300: 1,
+              350: 2,
+              750: 3,
+              900: 4,
+              1200: 5,
+            }}
           >
-            <Masonry gutter="20px">
+            <Masonry gutter="10px">
               {images.map((image, index) => (
                 <ImageCard key={index + 1} image={image} />
               ))}
@@ -94,6 +122,8 @@ function App() {
           </ResponsiveMasonry>
         </div>
       )}
+
+      <ScrollTop show={show} handleTopScroll={handleTopScroll} />
     </div>
   );
 }
